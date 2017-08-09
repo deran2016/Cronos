@@ -12,7 +12,7 @@ Cronos is the the client of the 2D Top View Multiplayer Game based on Gosu.
 Install dependencies and run app.rb using Ruby Prompt.
 
 ## Dependencies
-* 'gosu'
+* '[gosu](https://github.com/gosu/gosu)'
 * 'socket'
 * 'json'
 
