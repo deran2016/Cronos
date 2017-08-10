@@ -13,7 +13,6 @@ class GameWindow < Gosu::Window
 
 	def draw
 		Game.scene.draw
-		Graphics.latest
 		@cursor.draw
 	end
 
