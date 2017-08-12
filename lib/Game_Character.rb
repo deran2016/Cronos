@@ -1,3 +1,5 @@
+require 'gosu'
+
 class Game_Character
 	attr_reader 	:id
 	attr_reader 	:x, :y
@@ -9,14 +11,19 @@ class Game_Character
 		@id = 0
 		@x = 0
 		@y = 0
-		@character_name = ""
+		@character_name = "001-Fighter01"
 		@direction = 2
 		@move_speed = 5
 		@anime_count = 0
 	end
 
 	def moving?
-		return true # temporary
+		if Gosu.button_down? Gosu::KbDown or Gosu.button_down? Gosu::KbLeft or
+			Gosu.button_down? Gosu::KbRight or Gosu.button_down? Gosu::KbUp
+			return true # temporary
+		else
+			return false
+		end
 	end
 
 	def stop_moving
@@ -36,13 +43,15 @@ class Game_Character
 	end
 
 	def update
-		if moving?
-			if @anime_count > 4
+		if Gosu.milliseconds / 1000 % 2 == 0
+			if moving?
+				if @anime_count > 3
+					@anime_count = 0
+				end
+				@anime_count = 3
+			else
 				@anime_count = 0
 			end
-			@anime_count += 1
-		else
-			@anime_count = 0
 		end
 	end
 
@@ -52,7 +61,7 @@ class Game_Character
 		end
 		if passable?(@x, @y, 2)
 			turn_down
-			@y += 1
+			@y += 1 * @move_speed
 		end
 	end
 
@@ -62,7 +71,7 @@ class Game_Character
 		end
 		if passable?(@x, @y, 2)
 			turn_left
-			@x -= 1
+			@x -= 1 * @move_speed
 		end
 	end
 
@@ -72,7 +81,7 @@ class Game_Character
 		end
 		if passable?(@x, @y, 2)
 			turn_right
-			@y += 1
+			@x += 1 * @move_speed
 		end
 	end
 
@@ -82,7 +91,7 @@ class Game_Character
 		end
 		if passable?(@x, @y, 2)
 			turn_right
-			@x += 1
+			@y -= 1 * @move_speed
 		end
 	end
 

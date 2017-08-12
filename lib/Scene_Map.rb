@@ -3,38 +3,29 @@ require 'gosu'
 class Scene_Map
 
 	def initialize
-		#
+		$game_player = Game_Player.new
+		p $game_player
+		$scene 	= "Scene_Map"
+		@spriteset = Spriteset_Map.new
 	end
 
 	def update
-		#
+		$game_player.update
+		@spriteset.update
 	end
 
 	def draw
-		#
+		@spriteset.draw
 	end
 
 	def receive_input input
-		#
+
 	end
 
 	private
 
-	def delta_attributes input
-		if input == Gosu::KbLeft
-			{ y: 0, x: -1}
-		elsif input == Gosu::KbRight
-			{ y: 0, x: 1}
-		elsif input == Gosu::KbUp
-			{ y: -1, x: 0}
-		elsif input == Gosu::KbDown
-			{ y: 1, x: 0}
-		else
-			{ y: 0, x: 0}
-		end
-	end
-
-	def move
+	def tranfer_player
 		#
+		@spriteset = Spriteset_Map.new
 	end
 end

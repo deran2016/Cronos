@@ -5,10 +5,15 @@ class GameWindow < Gosu::Window
 		super width, height
 		self.caption = 'Test Game'
 		@cursor = Cursor.new(self, true)
+		@camera_x = @camera_y = 0
 	end
 
 	def update
 		Game.scene.update
+		if $scene == "Scene_Map"
+			@camera_x = [0, [$game_player.x - 400, 400].min].max
+			@camera_y = [0, [$game_player.y - 300, 300].min].max
+		end
 	end
 
 	def draw

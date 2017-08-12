@@ -5,7 +5,7 @@ class Game
 		attr_accessor :scene
 	end
 
-	def self.setup game_window: GameWindow.new, input_manager: InputManager.new, scene: Scene_Title.new
+	def self.setup game_window: GameWindow.new, input_manager: InputManager.new, scene: Scene_Map.new
 		@game_window = game_window
 		@input_manager = input_manager
 		@scene = scene

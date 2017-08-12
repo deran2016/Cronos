@@ -6,7 +6,7 @@ class Cursor
     def initialize(window, visible)
         @window = window # window to draw a mouse_image
         @visible = visible # visible?
-        @mouse_image = Gosu::Image.new("./graphics/Icon/Mouse.png") # load a mouse_image
+        @mouse_image = Gosu::Image.new("./graphics/icons/Mouse.png") # load a mouse_image
     end
 
     def visible?
