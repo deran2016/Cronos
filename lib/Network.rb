@@ -62,8 +62,3 @@ class Network
     	end
     end
  end
-
-
-
-
-
