@@ -4,7 +4,6 @@ class Scene_Map
 
 	def initialize
 		$game_player = Game_Player.new
-		p $game_player
 		$scene 	= "Scene_Map"
 		@spriteset = Spriteset_Map.new
 	end

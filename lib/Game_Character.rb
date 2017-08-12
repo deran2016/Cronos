@@ -43,12 +43,12 @@ class Game_Character
 	end
 
 	def update
-		if Gosu.milliseconds / 1000 % 2 == 0
+		if Gosu.milliseconds / 175 % 2 == 0
 			if moving?
-				if @anime_count > 3
+				if @anime_count == 3
 					@anime_count = 0
 				end
-				@anime_count = 3
+				@anime_count += 1
 			else
 				@anime_count = 0
 			end
@@ -87,10 +87,10 @@ class Game_Character
 
 	def move_up turn_enabled = true
 		if turn_enabled
-			turn_right
+			turn_up
 		end
 		if passable?(@x, @y, 2)
-			turn_right
+			turn_up
 			@y -= 1 * @move_speed
 		end
 	end

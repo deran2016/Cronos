@@ -11,8 +11,8 @@ class GameWindow < Gosu::Window
 	def update
 		Game.scene.update
 		if $scene == "Scene_Map"
-			@camera_x = [0, [$game_player.x - 400, 400].min].max
-			@camera_y = [0, [$game_player.y - 300, 300].min].max
+			@camera_x = [[$game_player.x - width / 2, 0].max, 800 * 50 - width].min
+			@camera_y = [[$game_player.y - height / 2, 0].max, 600 * 50 - height].min
 		end
 	end
 

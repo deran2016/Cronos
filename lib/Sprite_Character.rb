@@ -12,10 +12,12 @@ class Sprite_Character
 
 	def update
 		if @character_name != @character.character_name
-			if moving?
-				@character_anim = @character_source[@character.direction / 2 - 1 + @character.anime_count]
+			@character_name = @character.character_name
+		else
+			if @character.moving?
+				@character_anim = @character_source[@character.direction * 2 - 4 + @character.anime_count]
 			else
-				@character_anim = @character_source[@character.direction / 2 - 1]
+				@character_anim = @character_source[@character.direction * 2 - 4]
 			end
 		end
 	end
